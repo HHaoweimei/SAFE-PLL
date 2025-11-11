@@ -37,7 +37,7 @@ for j = 1:Maxiter
     H=XW + n1 * b';
     X2 = solve_hat_X(X, W, b, Y, M, gamma,n1,L1);
     G=obtain_G(train_data, P, k,beta,kdtree);
-    M = updateM(train_data,train_p_target,k,gamma,beta);
+    M = updateM(X2,train_p_target,k,gamma,beta);
     P=updateP(G,Y,alpha,beta,H);
 
 
@@ -46,4 +46,5 @@ for j = 1:Maxiter
     fprintf('The accuracy of SAFE is: %f \n', accuracy_test);
 
 end
+
 end
